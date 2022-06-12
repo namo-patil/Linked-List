@@ -8,7 +8,6 @@ public class MyNode<K> {
         this.key = key;
         this.next = null;
     }
-
     public MyNode getNext() {
         return next;
     }
