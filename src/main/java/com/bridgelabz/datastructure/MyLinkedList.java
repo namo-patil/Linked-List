@@ -9,6 +9,7 @@ public class MyLinkedList {
         this.tail = null;
     }
 
+    // Use to add new node at the start of list
     public void add(INode newNode) {
         if (this.tail == null) {
             this.tail = newNode;
@@ -22,22 +23,44 @@ public class MyLinkedList {
         }
     }
 
-    public void append(INode node) {
+    // Use to add new node at the end of list
+    public void append(INode newNode) {
         if (this.head == null) {
-            this.head = node;
+            this.head = newNode;
         }
         if (this.tail == null) {
-            this.tail = node;
+            this.tail = newNode;
         } else {
-            this.tail.setNext(node);
-            this.tail = node;
+            this.tail.setNext(newNode);
+            this.tail = newNode;
         }
     }
 
+    // Use to insert new node between two nodes
     public void insert(INode insertNode) {
         INode currNode = this.head.getNext();
         this.head.setNext(insertNode);
         insertNode.setNext(currNode);
+    }
+
+    //    public void popFirst(INode node) {
+//        INode currNode = node;
+//        head = node.getNext();
+//    }
+//
+//    public void popLast(INode node) {
+//        INode currNode = node;
+//        while (currNode.getNext().equals(tail)) {
+//            currNode = currNode.getNext();
+//        }
+//        this.tail = currNode.getNext();
+//        currNode.getNext().setNext(null);
+//    }
+    // Use to delete first element
+    public INode pop() {
+        INode currNode = head;
+        head = head.getNext();
+        return currNode;
     }
 
     public void printMyNode() {
@@ -46,6 +69,6 @@ public class MyLinkedList {
             System.out.print(currNode.getKey() + "-->");
             currNode = currNode.getNext();
         }
-        System.out.println("null");
+        System.out.println(currNode);
     }
 }
