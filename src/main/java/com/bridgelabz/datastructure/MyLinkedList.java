@@ -75,6 +75,19 @@ public class MyLinkedList {
         return currNode;
     }
 
+    public void insertAfter(INode myNode, INode newNode) {
+        INode currNode = this.head;
+        while (currNode != null && currNode.getNext() != null) {
+            if (currNode.getKey().equals(myNode.getKey())){
+                newNode.setNext(currNode.getNext());
+                currNode.setNext(newNode);
+                break;
+            }
+            else
+                currNode = currNode.getNext();
+        }
+    }
+
     // Use to print node of list
     public void printMyNode() {
         INode currNode = head;
