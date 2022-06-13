@@ -115,12 +115,33 @@ public class MyLinkedListTest {
         myLinkedList.append(mySecondNode);
         myLinkedList.append(myThirdNode);
         myLinkedList.printMyNode();
-        myLinkedList.insertAfter(mySecondNode, myFourthNode);
+        myLinkedList.insertAfter(30, myFourthNode);
         myLinkedList.printMyNode();
         boolean result = myLinkedList.head.equals(myFirstNode) &&
                 myLinkedList.head.getNext().equals(mySecondNode) &&
                 myLinkedList.head.getNext().getNext().equals(myFourthNode) &&
                 myLinkedList.tail.equals(myThirdNode);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenNodeWithKeyValue_WhenSearchAndDeletedNode_ShouldBeDisplaySizeOfLinkedList() {
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(40);
+        MyNode<Integer> myFourthNode = new MyNode<>(70);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.add(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+        myLinkedList.append(myFourthNode);
+        myLinkedList.printMyNode();
+        myLinkedList.searchAndDelete(40);
+        myLinkedList.printMyNode();
+        System.out.println("Size of Linked List: " + myLinkedList.size());
+        boolean result = myLinkedList.head.equals(myFirstNode) &&
+                         myLinkedList.head.getNext().equals(mySecondNode) &&
+                         myLinkedList.tail.equals(myFourthNode);
         Assert.assertTrue(result);
     }
 }

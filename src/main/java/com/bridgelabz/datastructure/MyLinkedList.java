@@ -75,10 +75,11 @@ public class MyLinkedList {
         return currNode;
     }
 
-    public void insertAfter(INode myNode, INode newNode) {
+    // search and insert new node
+    public void insertAfter(int searchKey, INode newNode) {
         INode currNode = this.head;
         while (currNode != null && currNode.getNext() != null) {
-            if (currNode.getKey().equals(myNode.getKey())){
+            if (currNode.getKey().equals(searchKey)){
                 newNode.setNext(currNode.getNext());
                 currNode.setNext(newNode);
                 break;
@@ -86,6 +87,31 @@ public class MyLinkedList {
             else
                 currNode = currNode.getNext();
         }
+    }
+
+    // search and delete the existing node
+    public void searchAndDelete(int searchKey){
+        INode currNode = head;
+        while (currNode != null && currNode.getNext() != null) {
+            if (currNode.getNext().getKey().equals(searchKey)){
+                INode newNode = currNode.getNext().getNext();
+                currNode.setNext(newNode);
+                break;
+            }
+            else
+                currNode = currNode.getNext();
+        }
+    }
+
+    // prints the size of linked list
+    public int size(){
+        INode currNode = head;
+        int counter = 0;
+        while (currNode != null){
+            currNode = currNode.getNext();
+            counter++;
+        }
+        return counter;
     }
 
     // Use to print node of list
