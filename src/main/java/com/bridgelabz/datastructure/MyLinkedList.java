@@ -43,26 +43,26 @@ public class MyLinkedList {
         insertNode.setNext(currNode);
     }
 
-    //    public void popFirst(INode node) {
-//        INode currNode = node;
-//        head = node.getNext();
-//    }
-//
-//    public void popLast(INode node) {
-//        INode currNode = node;
-//        while (currNode.getNext().equals(tail)) {
-//            currNode = currNode.getNext();
-//        }
-//        this.tail = currNode.getNext();
-//        currNode.getNext().setNext(null);
-//    }
-    // Use to delete first element
+    // Use to delete first element of list
     public INode pop() {
         INode currNode = head;
         head = head.getNext();
         return currNode;
     }
 
+    // Use to delete last element of list
+    public void popLast() {
+        INode secondLast = head;
+        INode lastNode = head.getNext();
+        while (lastNode.getNext() != null) {
+            lastNode = lastNode.getNext();
+            secondLast = secondLast.getNext();
+        }
+        secondLast.setNext(null);
+        this.tail = secondLast;
+    }
+
+    // Use to print node of list
     public void printMyNode() {
         INode currNode = head;
         while (currNode != null) {
