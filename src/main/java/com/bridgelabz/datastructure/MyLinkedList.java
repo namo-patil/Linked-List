@@ -62,6 +62,19 @@ public class MyLinkedList {
         this.tail = secondLast;
     }
 
+    // Use to search node in list
+    public INode searchNode(INode node) {
+        INode currNode = node;
+        while (currNode != null && currNode.getNext() != null) {
+            if (currNode.getKey().equals(node.getKey())) {
+                System.out.println("The Found value: " + currNode.getKey());
+                break;
+            } else
+                currNode = currNode.getNext();
+        }
+        return currNode;
+    }
+
     // Use to print node of list
     public void printMyNode() {
         INode currNode = head;
