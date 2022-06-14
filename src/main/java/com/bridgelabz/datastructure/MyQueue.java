@@ -10,6 +10,9 @@ public class MyQueue<K> {
     public void enqueu(INode newNode) {
         myLinkedList.append(newNode);
     }
+    public INode dequeue(){
+        return myLinkedList.pop();
+    }
 
     public INode isEmpty() {
         return myLinkedList.head;
