@@ -1,6 +1,6 @@
 package com.bridgelabz.datastructure;
 
-public class MyLinkedList {
+public class MyLinkedList<K> {
     public INode head;
     public INode tail;
 

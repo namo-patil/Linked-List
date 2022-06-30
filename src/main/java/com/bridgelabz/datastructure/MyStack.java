@@ -1,10 +1,10 @@
 package com.bridgelabz.datastructure;
 
 public class MyStack<K> {
-    private final MyLinkedList myLinkedList;
+    private final MyLinkedList<K> myLinkedList;
 
     public MyStack() {
-        this.myLinkedList = new MyLinkedList();
+        this.myLinkedList = new MyLinkedList<K>();
     }
 
     public void push(INode newNode) {

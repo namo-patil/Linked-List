@@ -1,10 +1,10 @@
 package com.bridgelabz.datastructure;
 
 public class MyQueue<K> {
-    private final MyLinkedList myLinkedList;
+    private final MyLinkedList<K> myLinkedList;
 
     public MyQueue() {
-        this.myLinkedList = new MyLinkedList();
+        this.myLinkedList = new MyLinkedList<K>();
     }
 
     public void enqueu(INode newNode) {
